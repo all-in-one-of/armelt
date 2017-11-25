@@ -12,10 +12,14 @@ public class HandViewer : MonoBehaviour
     private Meta.HandInput.Hand _hand;
     private Vector3 _topPos, _palmPos;
     private Vector3 _topPosPrev, _palmPosPrev;
-    private Meta.HandInput.PalmState _palmState;
-    public GameObject _particleShooting;
+    private Meta.HandInput.PalmState _palmState, _palmStatePrevious;
+    private bool _grabPrevious;
+
+
+    public GameObject _parentedShooting;
+    public GameObject _spawnedShooting;
     public GameObject _particleIdle;
-    public GameObject _ShootTrigger;
+    public GameObject _shootTrigger;
 
     void Start()
     {
@@ -40,13 +44,22 @@ public class HandViewer : MonoBehaviour
         //if (_palmState == Meta.HandInput.PalmState.Grabbing)
         if (_hand.IsGrabbing)
         {
-                _particleIdle.SetActive(true);
-            _particleShooting.SetActive(false);
+            _particleIdle.SetActive(true);
+            _parentedShooting.SetActive(false);
+            _shootTrigger.SetActive(false);
         }
         else
         {
             _particleIdle.SetActive(false);
-            _particleShooting.SetActive(true);
+            _parentedShooting.SetActive(true);
+            _shootTrigger.SetActive(true);
+            if (_grabPrevious == true)
+            {
+                GameObject.Instantiate(_spawnedShooting, _palmPos, rot);
+            }
         }
+
+        _grabPrevious = _hand.IsGrabbing;
+        _palmStatePrevious = _palmState;
     }
 }

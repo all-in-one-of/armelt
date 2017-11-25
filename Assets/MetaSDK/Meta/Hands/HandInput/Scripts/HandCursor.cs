@@ -50,7 +50,7 @@ namespace Meta.HandInput
         private AudioSource _audioSource;
         private SpriteRenderer _centerOutOfBoundsSpriteRenderer;
         private CenterHandFeature _centerHandFeature;
-        private TopHandFeature _topHandFeature;
+        //private TopHandFeature _topHandFeature;
         private Transform _centerOutOfBoundsSprite;
         private PalmState _lastPalmState = PalmState.Idle;
         private Vector3 _priorPos;
@@ -80,7 +80,7 @@ namespace Meta.HandInput
             _audioSource = GetComponent<AudioSource>();
             _hand = GetComponentInParent<Hand>();
             _centerHandFeature = GetComponent<CenterHandFeature>();
-            _topHandFeature = GetComponent<TopHandFeature>();
+            //_topHandFeature = GetComponent<TopHandFeature>();
             _centerHandFeature.OnEngagedEvent.AddListener(OnGrab);
             _centerHandFeature.OnDisengagedEvent.AddListener(OnRelease);
             _priorPos = ComputePriorPosition();
@@ -191,7 +191,7 @@ namespace Meta.HandInput
 
         private Vector3 GetSmoothHandPosition()
         {
-            const float alpha = 0.8f;
+            //const float alpha = 0.8f;
             Vector3 smoothPos = Vector3.Lerp(_priorPos, ComputePriorPosition(), _handSmoothing);
             _priorPos = smoothPos;
             return smoothPos;

@@ -18,6 +18,12 @@ namespace Meta.HandInput
         private bool _playAudio = true;
 
         [SerializeField]
+        private HandFeatureType _handPart = HandFeatureType.PalmFeature;
+
+        [SerializeField]
+        private float _handSmoothing = 0.8f;
+
+        [SerializeField]
         private Transform _cursorTransform;
 
 
@@ -44,6 +50,7 @@ namespace Meta.HandInput
         private AudioSource _audioSource;
         private SpriteRenderer _centerOutOfBoundsSpriteRenderer;
         private CenterHandFeature _centerHandFeature;
+        private TopHandFeature _topHandFeature;
         private Transform _centerOutOfBoundsSprite;
         private PalmState _lastPalmState = PalmState.Idle;
         private Vector3 _priorPos;
@@ -73,6 +80,7 @@ namespace Meta.HandInput
             _audioSource = GetComponent<AudioSource>();
             _hand = GetComponentInParent<Hand>();
             _centerHandFeature = GetComponent<CenterHandFeature>();
+            _topHandFeature = GetComponent<TopHandFeature>();
             _centerHandFeature.OnEngagedEvent.AddListener(OnGrab);
             _centerHandFeature.OnDisengagedEvent.AddListener(OnRelease);
             _priorPos = ComputePriorPosition();
@@ -85,7 +93,13 @@ namespace Meta.HandInput
         private Vector3 ComputePriorPosition()
         {
             const float alpha = 0.75f;
-            return Vector3.Lerp(_hand.Data.GrabAnchor, _hand.Palm.Position, alpha);
+            Vector3 pos;
+            if (_handPart == HandFeatureType.TopFeature)
+                pos = _hand.Top.Position;
+            else
+                pos = Vector3.Lerp(_hand.Data.GrabAnchor, _hand.Palm.Position, alpha);
+
+            return pos;
         }
 
         private void LateUpdate()
@@ -178,7 +192,7 @@ namespace Meta.HandInput
         private Vector3 GetSmoothHandPosition()
         {
             const float alpha = 0.8f;
-            Vector3 smoothPos = Vector3.Lerp(_priorPos, ComputePriorPosition(), alpha);
+            Vector3 smoothPos = Vector3.Lerp(_priorPos, ComputePriorPosition(), _handSmoothing);
             _priorPos = smoothPos;
             return smoothPos;
         }

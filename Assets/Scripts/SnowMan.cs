@@ -29,7 +29,8 @@ public class SnowMan : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, Camera.main.transform.position, Time.fixedDeltaTime * _speed);
         if( (transform.position - Camera.main.transform.position).magnitude < 0.1f )
         {
-            _GM.GameOver();
+            _GM.AddHit();
+            Destroy(gameObject);
         }
     }
 

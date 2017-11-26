@@ -5,6 +5,7 @@ using UnityEngine;
 public class SnowInteraction : MonoBehaviour
 {
     private SnowMan snowman;
+    public GameObject _splash;
 
     void Start()
     {
@@ -13,7 +14,7 @@ public class SnowInteraction : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-
+        Instantiate(_splash, transform.position, Quaternion.identity);
     }
 
     private void OnTriggerStay(Collider other)

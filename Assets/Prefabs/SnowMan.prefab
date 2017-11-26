@@ -57,6 +57,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4401219458753794}
+  - component: {fileID: 114912393501227888}
   m_Layer: 0
   m_Name: SnowMan
   m_TagString: Untagged
@@ -173,7 +174,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1622604695548260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.642, y: -0.028, z: 0.908}
+  m_LocalPosition: {x: -0.671, y: -0.028, z: 4.131}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4621467588765464}
@@ -189,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1266782220042268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.017, y: 0.46, z: -0.078999996}
+  m_LocalPosition: {x: 0.017, y: 0.431, z: -0.078999996}
   m_LocalScale: {x: 0.13, y: 0.13, z: 0.13}
   m_Children:
   - {fileID: 4923099477604108}
@@ -218,7 +219,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1776176597219336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.017, y: 0.264, z: -0.078999996}
+  m_LocalPosition: {x: 0.017, y: 0.259, z: -0.078999996}
   m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
   m_Children: []
   m_Father: {fileID: 4401219458753794}
@@ -539,6 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e9bd93e546f3442bd0edbf0f5f97a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _splash: {fileID: 1010581197637888, guid: 6e107760b01196641a391136824288b3, type: 2}
 --- !u!114 &114184225162345900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -550,6 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e9bd93e546f3442bd0edbf0f5f97a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _splash: {fileID: 1010581197637888, guid: 6e107760b01196641a391136824288b3, type: 2}
 --- !u!114 &114473382033882894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -561,6 +564,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e9bd93e546f3442bd0edbf0f5f97a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _splash: {fileID: 1010581197637888, guid: 6e107760b01196641a391136824288b3, type: 2}
+--- !u!114 &114912393501227888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1622604695548260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d61b066cee94134db728e6e780c00b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 0.05
 --- !u!135 &135027841901604142
 SphereCollider:
   m_ObjectHideFlags: 1

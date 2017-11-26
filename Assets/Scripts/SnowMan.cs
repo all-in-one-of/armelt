@@ -5,13 +5,13 @@ using UnityEngine;
 public class SnowMan : MonoBehaviour
 {
     private int _piecesLeft = 3;
+    private GameManager _GM;
     public float _speed = 1.0f;
-
-
+    public GameObject _gameManager;
 
 	void Start ()
     {
-	
+        _GM = _gameManager.GetComponent<GameManager>();
 	}
 	
     public void RemovePiece()
@@ -19,6 +19,7 @@ public class SnowMan : MonoBehaviour
         _piecesLeft--;
         if(_piecesLeft==0)
         {
+            _GM.AddPoint();            
             Destroy(gameObject);
         }
     }
@@ -26,6 +27,10 @@ public class SnowMan : MonoBehaviour
     private void FixedUpdate()
     {
         transform.position = Vector3.MoveTowards(transform.position, Camera.main.transform.position, Time.fixedDeltaTime * _speed);
+        if( (transform.position - Camera.main.transform.position).magnitude < 0.1f )
+        {
+            _GM.GameOver();
+        }
     }
 
 }

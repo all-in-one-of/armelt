@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SnowInteraction : MonoBehaviour
 {
+    private SnowMan snowman;
 
     void Start()
     {
-
+        snowman = GetComponentInParent<SnowMan>();
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -20,6 +21,7 @@ public class SnowInteraction : MonoBehaviour
         transform.localScale *= 0.97f;
         if (transform.localScale.x < 0.1f)
         {
+            snowman.RemovePiece();
             Destroy(gameObject);
         }
     }

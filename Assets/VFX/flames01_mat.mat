@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: flames01_mat
   m_Shader: {fileID: 4800000, guid: 2232f7884aa9dfe409b1c23f35100010, type: 3}
-  m_ShaderKeywords: _PACK_NORMAL_ON
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -86,7 +86,7 @@ Material:
     - _boundingMax: 0.32
     - _boundingMin: -0.13
     - _numOfFrames: 200
-    - _pack_normal: 1
+    - _pack_normal: 0
     - _speed: 0.4
     m_Colors:
     - _Color: {r: 0.9852941, g: 0.9852941, b: 0.9852941, a: 0.472}

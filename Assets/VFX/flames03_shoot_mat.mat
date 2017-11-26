@@ -83,11 +83,11 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _boundingMax: 1.12
-    - _boundingMin: -0.2
-    - _numOfFrames: 40
+    - _boundingMax: 1.44
+    - _boundingMin: -0.17
+    - _numOfFrames: 80
     - _pack_normal: 0
-    - _speed: 1.2
+    - _speed: 0.71
     m_Colors:
     - _Color: {r: 0.9852941, g: 0.9852941, b: 0.9852941, a: 0.472}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

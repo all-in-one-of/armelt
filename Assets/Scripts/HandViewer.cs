@@ -45,17 +45,19 @@ public class HandViewer : MonoBehaviour
         if (_hand.IsGrabbing)
         {
             _particleIdle.SetActive(true);
-            _parentedShooting.SetActive(false);
+            if (_parentedShooting != null) _parentedShooting.SetActive(false);
             _shootTrigger.SetActive(false);
         }
         else
         {
             _particleIdle.SetActive(false);
-            _parentedShooting.SetActive(true);
+            if(_parentedShooting!=null) _parentedShooting.SetActive(true);
             _shootTrigger.SetActive(true);
-            if (_grabPrevious == true)
+            if (_grabPrevious == true && _spawnedShooting != null)
             {
-                GameObject.Instantiate(_spawnedShooting, _palmPos, rot);
+                GameObject fireball = Instantiate(_spawnedShooting, _palmPos, rot);
+                Rigidbody fireballRB = fireball.GetComponent<Rigidbody>();
+                if (fireballRB != null) fireballRB.velocity = 2.0f * (rot * Vector3.forward);
             }
         }
 
